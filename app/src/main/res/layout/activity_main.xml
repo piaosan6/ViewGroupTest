@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dn.maptest.FlowLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#cccccc"
+    android:layout_margin="5dp"
+    android:padding="20dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:background="#00fcfc"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nozuonodie"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:background="#00fcfc"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="天是的发送到" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="水电费水电费水电费12" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="国际航空连接" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="和认同与积分都是告诉" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        
+        android:gravity="center"
+        android:text="第十四大繁荣推进计划" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#00fcfc"
+        android:gravity="center"
+        android:text="问卷法平板模式铝合金" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="很快进入体育集团已经同意无聊大是大非飞" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#00fcfc"
+        android:gravity="center"
+        android:text="地方噶" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#00fcfc"
+        
+        android:gravity="center"
+        android:text="让位" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        
+        android:gravity="center"
+        android:text="阿斯蒂芬 " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        
+        android:gravity="center"
+        android:text="牛刀的房间里" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:text="阿斯顿发生多翻翻覆覆 " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="真是塔尔昂贵" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="是电风扇的 " />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00fcfc"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="是电风扇的什么呢 " />
+
+</com.dn.maptest.FlowLayout>
