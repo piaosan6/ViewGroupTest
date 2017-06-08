@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2017/6/3 0003.
+ * 水平方向的流式布局
  */
-
 public class FlowLayout extends ViewGroup {
 
     private ArrayList<ArrayList<View>> views;
@@ -47,25 +46,33 @@ public class FlowLayout extends ViewGroup {
         int currentLineMaxHeight = 0;
         int canUseWidth =  parentWidth - getPaddingLeft() - getPaddingRight();
 
+
+
         for (int i = 0; i < childCount; i++){
             View child = getChildAt(i);
             //计算子控件的大小
             //measureChild(child,widthMeasureSpec,heightMeasureSpec);
+
             int widthUsed = getPaddingLeft() + getPaddingRight() ;
             int heightUsed = getPaddingTop() + getPaddingBottom();
-            //该方法主要哦用户测量父容易已经使用了padding
-            measureChildWithMargins(child,widthMeasureSpec,widthUsed,heightMeasureSpec,heightUsed);
-            // 该方法用户测量子view，不考虑父容器的padding
-            //measureChild(child,widthMeasureSpec,heightMeasureSpec);
+            //测量子view，并且包括父容易已经使用了大小
+            //measureChildWithMargins(child,widthMeasureSpec,widthUsed,heightMeasureSpec,heightUsed);
+            // 测量子view
+            measureChild(child,widthMeasureSpec,heightMeasureSpec);
             //L.e(param + ", param.width = " + param.width + ", measureWidth = " + child.getMeasuredWidth());
             MarginLayoutParams params = (MarginLayoutParams) child.getLayoutParams();
             int width = child.getMeasuredWidth() + params.leftMargin + params.rightMargin ;
             int height = child.getMeasuredHeight() + params.topMargin + params.bottomMargin;
+
+            L.e("width = " + child.getMeasuredWidth() + ", params.leftMargin= " + params.leftMargin + ", params.rightMargin = "  + params.rightMargin  );
+//            L.e("currentWidth = " + currentWidth + "测量子View的 width = " + width + ", currentWidth + width = "  + (currentWidth + width)
+//                    + ", canUseWidth = " +  canUseWidth );
             if(currentWidth + width > canUseWidth){
                 //L.e("currentWidth = " + currentWidth + " , child width = " + width + ", canUseWidth = " + canUseWidth);
                 // 宽度不够，换一行
                 //将行list添加到总views中，
                 views.add(lineList);
+                maxWidth = Math.max(maxWidth,currentWidth);
                 // 换行后记录下一行起始的宽度
                 currentWidth = width;
                 //创建下一行view的list
@@ -92,17 +99,18 @@ public class FlowLayout extends ViewGroup {
         maxHeight += currentLineMaxHeight;
         views.add(lineList);
         L.e("last maxHeight = " + maxHeight);
-//        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
-//        switch (widthMode){
-//            case MeasureSpec.EXACTLY:
-//                break;
-//            case MeasureSpec.UNSPECIFIED:
-//            case MeasureSpec.AT_MOST:
-//                parentWidth = maxWidth ;
-//                break;
-//        }
+        switch (widthMode){
+            case MeasureSpec.EXACTLY:
+                break;
+            case MeasureSpec.UNSPECIFIED:
+            case MeasureSpec.AT_MOST:
+                parentWidth = maxWidth ;
+//                parentWidth = Math.max(parentWidth, maxWidth) ;
+                break;
+        }
         switch (heightMode){
             case MeasureSpec.EXACTLY:
                 break;
@@ -150,15 +158,16 @@ public class FlowLayout extends ViewGroup {
                 int height = v.getMeasuredHeight();
                 MarginLayoutParams params = (MarginLayoutParams) v.getLayoutParams();
                 left = currentLineWidth + params.leftMargin;
-                right = left + width + params.rightMargin;
+                // 这里不应该加上params.rightMargin;
+                right = left + width ;//+ params.rightMargin;
                 top = params.topMargin + totalHeight;
                 bottom = top + height;// + params.bottomMargin;
 
                 currentLineWidth +=  width +  params.leftMargin + params.rightMargin;
                 currentLineMaxHeight = Math.max(currentLineMaxHeight,params.topMargin + height + params.bottomMargin);
 
-//                L.e("left = " + left + ",top = " + top+ ",right = " + right+ ",bottom = " + bottom
-//                        +",currentLineWidth =" + currentLineWidth +",currentLineMaxHeight =" + currentLineMaxHeight);
+                L.e("left = " + left + ",top = " + top+ ",right = " + right+ ",bottom = " + bottom
+                        +",currentLineWidth =" + currentLineWidth +",currentLineMaxHeight =" + currentLineMaxHeight);
                 v.layout(left, top, right, bottom);
             }
         }
